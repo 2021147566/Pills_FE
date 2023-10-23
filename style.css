@@ -277,3 +277,105 @@ a{
     background-color: #e6e6e6;
     color: #242424;
 }
+
+
+/* login.html */
+/* login.html */
+/* login.html */
+/* signup.html */
+/* signup.html */
+/* signup.html */
+
+
+.h1 {
+    float: center;
+}
+
+.h2 {
+    margin-top: 100px;
+}
+
+.login {
+    width: 35%;
+    height: 300px;
+    background-color: #242424;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 15px;
+    
+
+}
+.login_sn{
+    width: 35%;
+    height: 450px;
+    background-color: #242424;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.text {
+    width: 20%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 20px;
+}
+
+.text_box {
+    text-align: right;    
+    justify-content: center;
+    width: 100%;
+    color: #e6e6e6;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 50px;
+
+}
+
+.input {
+    width: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.blank {
+    width: 80%;
+    color: #242424;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 30px;
+    background-color: #f1f1f1;
+    border: none;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+    margin-left:auto;
+    margin-right:auto;
+    width: 60%;
+}
+.btn{
+    width: 40%;
+    height: 50px;
+    background-color: #e6e6e6;
+    margin: 0 auto;
+    color: #242424;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 50px;
+    border-radius: 15px;
+}
+.btn:hover{
+    background-color: #242424;
+    color:#e6e6e6;
+    cursor: url(img/click.cur), auto;
+}

@@ -7,8 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
 </head>
-<body>
 
+<body>
+    <br><br><br><br><br><br><br>
+    <h1>Login</h1>
+    <div class="login">
+        <div class="content">
+            <div class="text">
+                <div class="text_box">
+                    Email
+                </div>
+                <div class="text_box">
+                    Password
+                </div>
+            </div>
+            <div class="input">
+                <div class="input_box">
+                    <label for="email" style="font-family: 'Ubuntu', monospace; font-size: 30px;"></label>
+                    <input type="text" class="blank" style="margin-bottom: 15px;" id="email" name="email" />
+                </div>
+                <div class="input_box">
+                    <label for="email" style="font-family: 'Ubuntu', monospace; font-size: 30px;"></label>
+                    <input type="text" class="blank" id="password" name="password" />
+                </div>
+            </div>
+        </div>
+        <div class = "buttons">
+            <button type="submit" id="signin_btn" class="btn" onclick="location.href='#'" >Login</button>
+            <button type="submit" id="signin_btn" class="btn" onclick="location.href='signup.html'">Signup</button>
+        </div>
+    </div>
 </body>
+
 </html>
