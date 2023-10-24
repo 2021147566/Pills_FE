@@ -10,6 +10,7 @@
     <script src="login.js"></script>
     <script src = "script/youtube.js"></script>
     <script src = "script/article.js"></script>
+    <script src="signup.js"></script>
 
 </head>
 
@@ -31,7 +32,7 @@
             <a class="signup" href="signup.html">회원가입</a> <!-- href="/signup" -->
 
             <!-- {% else %} -->
-            <a class="logout" href="logout.html">로그아웃</a><!-- href="/logout" -->
+            <a class="logout" onclick="handleLogout()">로그아웃</a><!-- href="/logout" -->
             <a class="profile" href="my_page.html"><!-- href="/profile/{{ user.username }}" -->
                 <img class="bar_profile" src="img/profile.jpg" alt="profile"><!-- src = "{{ user. profile }}" -->
             </a>
