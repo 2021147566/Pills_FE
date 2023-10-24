@@ -16,6 +16,11 @@ Navigation Bar
 * youtube 영상 업로드 안되면 youtube.script 참조
 ### ✔ create.html
 사진 업로드 및 약 촬영 가이드
+### ✔ manual.html
+인식 불가 시 이동할 약 등록 요청 사이트
+* 제형, 분할선 모양 클릭 시 box shadow 적용
+* color palette- 콘솔에 컬러 코드 기록, color picker 기능 가능
+
 ### ✔ my_page.html
 ## - /script
 ### ✔ article.js
