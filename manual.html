@@ -11,229 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="login.js"></script>
-    <script src="script/youtube.js"></script>
-    <script src="script/article.js"></script>
-    <style>
-        .register_box {
-            width: 70%;
-            height: 600px;
-            margin: 0 auto;
-            margin-top: 30px;
-            display: flex;
-            background-color: #e6e6e6;
-            border-radius: 10px;
-        }
+    <script src = "script/manual_click.js"></script>
 
-        .left_info {
-            width: 35%;
-            height: 93%;
-            margin: auto;
-            background-color: #242424;
-            align-items: center;
-            border-radius: 15px;
-
-        }
-
-        .right_info {
-            width: 60%;
-            height: 93%;
-            margin: auto 0;
-            margin-right: auto;
-            background-color: #242424;
-            align-items: center;
-            border-radius: 15px;
-        }
-
-        .registerpage {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .register_btn {
-            width: 100px;
-            height: 50px;
-            margin-right: 15%;
-            margin-top: 20px;
-            float: right;
-            justify-content: center;
-            background-color: #242424;
-            border-radius: 15px;
-            color: #e6e6e6;
-            align-items: center;
-            line-height: 50px;
-            font-size: 17px;
-        }
-
-        .register_btn:hover {
-            background-color: #e6e6e6;
-            color: #242424;
-        }
-
-        .register_image {
-            width: 50%;
-            height: 50%;
-            aspect-ratio: auto 1 /1;
-            margin: 0 auto;
-            margin-top: 30px;
-            border-radius: 15px;
-        }
-
-        .register_pill_img {
-            width: 100%;
-            height: 80%;
-            background-color: gray;
-            border-radius: 15px;
-        }
-
-        .upload_btn_register {
-            width: 100%;
-            height: 30px;
-            margin-top: 20px;
-            justify-content: center;
-            background-color: #242424;
-            border-radius: 15px;
-            color: #e6e6e6;
-            align-items: center;
-            line-height: 30px;
-            font-size: 17px;
-        }
-
-        .upload_btn_register:hover {
-            background-color: #e6e6e6;
-            color: #242424;
-            cursor: url(img/click.cur), auto;
-        }
-
-        .company {
-            width: 100%;
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .company_title {
-            color: #e6e6e6;
-            font-size: 20px;
-            width: 30%;
-            text-align: left;
-
-        }
-
-        .company_input {
-            width: 50%;
-            height: 30px;
-            background-color: #e6e6e6;
-            border-radius: 15px;
-        }
-
-        #company_input {
-            width: 100%;
-            height: 100%;
-            background-color: #e6e6e6;
-            border-radius: 15px;
-            outline: none;
-            border: none;
-            padding-left: 10px;
-        }
-
-        .pill_name {
-            width: 100%;
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .pill_title {
-            color: #e6e6e6;
-            font-size: 20px;
-            width: 30%;
-            text-align: left;
-        }
-
-        .pill_input {
-            width: 50%;
-            height: 30px;
-            background-color: #e6e6e6;
-            border-radius: 15px;
-        }
-
-        #pill_input {
-            width: 100%;
-            height: 100%;
-            background-color: #e6e6e6;
-            border-radius: 15px;
-            outline: none;
-            border: none;
-            padding-left: 10px;
-        }
-
-        .dropdown-label {
-            font-size: 12px;
-            margin: 10px;
-            font-weight: bold;
-            color: #242424;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropbtn_icon {
-            font-family: 'Material Icons';
-        }
-
-        .dropbtn {
-            display: block;
-            border: none;
-            border-radius: 5px;
-            padding-left: 10px;
-            height: 30px;
-            background-color: #e6e6e6;
-            color: #242424;
-            width: 104%;
-            text-align: left;
-            cursor: url(img/click.cur), auto;
-        }
-
-        .dropdown-content {
-            display: none;
-            font-weight: 600;
-            background-color: #e6e6e6;
-            min-width: 104%;
-            height: 160px;
-            overflow: scroll;
-            cursor: url(img/click.cur), auto;
-        }
-
-        .dropdown-content::-webkit-scrollbar {
-            width: 10x;
-            height: 10px;
-        }
-
-        .dropdown-content::-webkit-scrollbar-thumb {
-            border-radius: 4px;
-            background-color: #242424;
-        }
-
-        .dropdown-content div {
-            display: block;
-            text-decoration: none;
-            color: #242424;
-            font-size: 12px;
-            padding: 12px 20px;
-        }
-
-        .dropdown-content div:hover {
-            background-color: #e6e6e6;
-        }
-
-        .dropdown-content.show {
-            display: block;
-        }
-    </style>
 </head>
 
 <body>
@@ -261,30 +40,21 @@
             <!-- {% endif %} -->
         </div>
     </div>
+
     <h1 class="registerpage">약 등록 요청</h1>
+
     <div class="register_box">
+
         <div class="left_info">
+
             <div class="register_image">
                 <img src="img/pill_sample.png" class="register_pill_img" id="register_pill_img" alt="register_pill_img">
                 <button type="button" class="upload_btn_register" onclick="onClickUpload()" id="upload_btn_register">파일
                     업로드</button>
                 <input id="upload_file" type="file" accept="image/*" onchange="loadFile(event)"
                     style="visibility: hidden;" />
-                <script>
-                    function onClickUpload() {
-                        let myInput = document.getElementById('upload_file')
-                        myInput.click()
-                    }
-                    var loadFile = function (event) {
-                        var output = document.getElementById('register_pill_img')
-                        output.style.display = ''
-                        output.src = URL.createObjectURL(event.target.files[0])
-                        output.onload = function () {
-                            URL.revokeObjectURL(output.src)
-                        }
-                    }
-                </script>
             </div>
+
             <div class="company_name">
                 <div class="company">
                     <div class="company_title">
@@ -375,28 +145,98 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="right_info">
-            <label for="backgroundColorPicker">배경색 설정:</label>
-            <input type="color" id="backgroundColorPicker">
 
-            <div id="content">
-                이 영역의 배경색과 텍스트 색상을 설정할 수 있습니다.
+        </div>
+
+        <div class="right_info">
+
+            <div class="color_picker">
+                <label class="color_title" for="backgroundColorPicker">알약 색상:</label>
+                <input type="color" id="backgroundColorPicker">
+                <div id="content" class="color_div">
+                </div>
+            </div><br>
+
+            <div class="pill_text">
+                <div class="pill_text_title">
+                    식별 문자:
+                </div>
+                <div class="input_AT">
+                    <input type="text" name="pill_text" id="pill_text" placeholder="식별문자를 입력하세요.">
+                </div>
             </div>
 
-            <script>
-                const backgroundColorPicker = document.getElementById('backgroundColorPicker');
-                const content = document.getElementById('content');
+            <br>
 
-                backgroundColorPicker.addEventListener('input', () => {
-                    const selectedColor = backgroundColorPicker.value;
-                    content.style.backgroundColor = selectedColor;
-                });
-            </script>
+            <div class="pill_sort">
+                <div class="pill_text_title">
+                    알약 제형:
+                </div>
+
+                <div class="input_frame">
+                    <div class="pill_sorting">
+                        <img src="img/경질캡슐.jpg" id="gsorting" width="70px" height="70px" style="margin-right: 10px;"
+                            onclick="gsorting_box()">
+                        <div class="pill_sorting_text">
+                            경질캡슐&nbsp;</div>
+                    </div>
+                    <div class="pill_sorting">
+                        <img src="img/연질캡슐.jpg" id="ysorting" width="70px" height="70px" style="margin-right: 10px;"
+                            onclick="ysorting_box()">
+                        <div class="pill_sorting_text">
+                            연질캡슐&nbsp;&nbsp;</div>
+                    </div>
+                    <div class="pill_sorting">
+                        <img src="img/정제.jpg" id="jsorting" width="70px" height="70px" style="margin-right: 10px;"
+                            onclick="jsorting_box()">
+                        <div class="pill_sorting_text">정제 &nbsp;</div>
+                    </div>
+                    <div class="pill_sorting">
+                        <img src="img/장용제(필름코팅).jpg" id="zsorting" width="70px" height="70px" style="margin-right: 10px;"
+                            onclick="zsorting_box()">
+                        <div class="pill_sorting_text">장용제<br>(필름코팅)</div>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <br><br><br><br>
+            
+            <div class="pill_sort">
+                <div class="pill_text_title">
+                    분할 모양:
+                </div>
+                <div class="input_frame">
+                    <div class="pill_sorting">
+                        <img src="img/-.png" id="minus" width="110px" height="70px" style="margin-right: 10px;"
+                            onclick="minus_box()">
+                        <div class="pill_sorting_text">
+                            &nbsp;&nbsp;&nbsp;-</div>
+                    </div>
+                    <div class="pill_sorting">
+                        <img src="img/+.png" id="plus" width="110px" height="70px" style="margin-right: 10px;"
+                            onclick="plus_box()">
+                        <div class="pill_sorting_text">
+                            &nbsp;&nbsp;&nbsp;+</div>
+                    </div>
+                    <div class="pill_sorting">
+                        <img src="img/none.png" id="none" width="110px" height="70px" style="margin-right: 10px;"
+                            onclick="none_box()">
+                        <div class="pill_sorting_text">&nbsp;&nbsp;없음</div>
+                    </div>
+                    <div class="pill_sorting">
+                        <img src="img/guitar.png" id="guitar" width="65px" height="65px" style="margin-right: 10px;"
+                            onclick="guitar_box()">
+                        <div class="pill_sorting_text"style="margin-top:5px;">기타&nbsp;</div>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
-    <button class="register_btn" onclick="location.href='#'">등록</button>
+    <button class="register_btn" onclick="location.href='#'" style = "cursor: url(img/click.cur),auto">등록</button>
 </body>
 
 </html>
