@@ -32,7 +32,11 @@ Naver Search API 검색 결과
 * query='medicine'
   - '약' -> Encoding 에러 발생: 해결!
   - '약' -> 한국어 잇슈,,,약이 들어간 모든 기사 추출,,,(ex. YTN 매각 최종 낙찰자에 유진그룹…인수가 약 3200억원 😓😓😓😓)
-  
+### ✔ manual_click.js
+manual html 전체 함수
+* 이미지 업로드 함수 onClickUpload
+* 컬러 팔레트 스포이드 함수 backgroundColorPicker.addEventListener
+* 나머지 - 박스 및 이미지 선택 시 box Shadow(네온 효과) 적용 함수
 ### ✔ youtube.js
 youtube iframe 생성 script
 * **유튜브 영상 미생성시 console 확인 - 유튜브 오류 발생: api 키 할당량 초과일 확률 高**
