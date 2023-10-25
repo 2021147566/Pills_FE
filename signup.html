@@ -15,6 +15,7 @@
             text-align: center;
         }
     </style>
+    <script src= "signup.js"></script>
 </head>
 
 <body>
@@ -44,23 +45,22 @@
                 </div>
                 <div class="input_box">
                     <label for="email" style="font-family: 'Ubuntu', monospace; font-size: 30px;"></label>
-                    <input type="text" class="blank" style="margin-bottom: 15px;" id="email" name="email" />
+                    <input type="text" class="blank" style="margin-bottom: 15px;" id="name" name="email" />
                 </div>
                 <div class="input_box">
                     <label for="email" style="font-family: 'Ubuntu', monospace; font-size: 30px;"></label>
-                    <input type="text" class="blank" style="margin-bottom: 15px;" id="email" name="email" />
+                    <input type="text" class="blank" style="margin-bottom: 15px;" id="password" name="email" />
                 </div>
                 <div class="input_box">
                     <label for="email" style="font-family: 'Ubuntu', monospace; font-size: 30px;"></label>
-                    <input type="text" class="blank" style="margin-bottom: 15px;" id="email" name="email" />
+                    <input type="text" class="blank" style="margin-bottom: 15px;" id="passwordcheck" name="email" />
                 </div>
 
                 
             </div>
         </div>
         <div class = "buttons">
-            <button type="submit" id="login_btn" class="btn" onclick="location.href='login.html'" >Login</button>
-            <button type="submit" id="signup_btn" class="btn" onclick="location.href='#'">Signup</button>
+            <button type="submit" id="signup_btn" class="btn" onclick="handleSignup()">Signup</button>
         </div>
     </div>
 </body>
