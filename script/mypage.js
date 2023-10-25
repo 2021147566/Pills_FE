@@ -4,7 +4,9 @@ window.onload = () => {
 };
 
 async function request() {
+  console.log("hhh");
   const payload = localStorage.getItem("payload");
+  console.log(payload);
   const payload_parse = JSON.parse(payload);
   console.log(payload_parse.profile_img);
   const request_user_id = payload_parse.user_id;
@@ -19,7 +21,9 @@ async function request() {
     }
   );
   const data = await response.json();
-  console.log(data);
+  console.log("dd");
+
+  console.log(data.email);
 
   document.getElementById(
     "my_profile_img"
@@ -129,16 +133,15 @@ async function handleUpdateProfile() {
   }
 }
 
-function handleProfilePreview(input) {
-  console.log(input.files);
-  if (input.files && input.files.length > 0) {
-    var previewContainer = document.getElementById("update_profile_img");
-
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      document.getElementById("my_profile_img").src = e.target.result;
-      // console.log(e.target.result)
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
+function onClickUpload() {
+  let myInput = document.getElementById("update_profile_img");
+  myInput.click();
 }
+var loadFile = function (event) {
+  var output = document.getElementById("my_profile_img");
+  output.style.display = "";
+  output.src = URL.createObjectURL(event.target.files[0]);
+  output.onload = function () {
+    URL.revokeObjectURL(output.src);
+  };
+};
