@@ -23,8 +23,6 @@ async function request() {
   const data = await response.json();
   console.log("dd");
 
-  console.log(data.email);
-
   document.getElementById(
     "my_profile_img"
   ).src = `http://127.0.0.1:8000${data.profile_img}/`;
@@ -34,25 +32,21 @@ async function request() {
   ).src = `http://127.0.0.1:8000${data.profile_img}/`;
 
   document.getElementById("my_email").innerText = data.email;
+  document.getElementById("username").innerText = data.username;
   document.getElementById("update_username").value = data.username;
-  document.getElementById("update_birthday").value = data.birthday;
+  document.getElementById("nickname").innerText = data.nickname;
+  document.getElementById("update_nickname").value = data.nickname;
 }
-
-async function OpenModal() {
-  const modalCloseButton = document.getElementById("modalCloseButton");
-  const modal = document.getElementById("modalContainer");
-
-  modal.classList.remove("hidden");
-
-  modalCloseButton.addEventListener("click", () => {
-    modal.classList.add("hidden");
-
-    // 닫기 누르면 모달 창 초기화
-    document.getElementById("update_present_pw").value = "";
-    document.getElementById("update_password_").value = "";
-    document.getElementById("update_password_check").value = "";
-    document.getElementById("pw_update_errors").innerText = "";
-  });
+function OpenModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+function CloseModal() {
+  document.getElementById("myModal").style.display = "none";
+  document.getElementById("update_present_pw").value = "";
+  document.getElementById("update_password_").value = "";
+  document.getElementById("update_password_check").value = "";
+  document.getElementById("pw_update_errors").innerText = "";
+  console.log("CloseModal");
 }
 
 async function handleUpdatePassword() {
@@ -101,7 +95,8 @@ async function handleUpdateProfile() {
   const formData = new FormData();
 
   formData.append("username", document.getElementById("update_username").value);
-  formData.append("birthday", document.getElementById("update_birthday").value);
+  formData.append("nickname", document.getElementById("update_nickname").value);
+
   if (document.getElementById("update_profile_img").files[0]) {
     formData.append(
       "profile_img",
