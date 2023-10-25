@@ -705,3 +705,101 @@ a{
     width: 100%;
     line-height: 20px;
 }
+
+
+
+/* mypage-modal */
+.password_btn_mypage {
+    background-color: #242424;
+    border: none;
+    border-radius: 10px;
+
+    width: 100px;
+    height: 28px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #e6e6e6;
+    margin-left: 30px;
+}
+
+.password_edit {
+    display: flex;
+    align-items: center;
+}
+
+.password_btn_mypage:hover {
+    background-color: #e6e6e6;
+    color: #242424;
+    border: #242424 solid 1px;
+}
+
+.myModal {
+    display: none;
+    background-color: #e6e6e6;
+    border: #747474 solid 3px;
+    color: #242424;
+    border-radius: 15px;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 500px;
+}
+
+.close {
+    color: #242424;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+    margin-right: 10px;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    display: block;
+    background-color: #e6e6e6;
+    color: #242424;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal_text {
+    font-size: 20px;
+    margin-left: 80px;
+}
+
+.myModal h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-left: 30px;
+}
+
+.btn-primary {
+    background-color: #242424;
+    border: none;
+    margin-top: 20px;
+    border-radius: 10px;
+    line-height: 40px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #e6e6e6;
+    float: center;
+    margin-left: 200px;
+    margin-bottom: 30px;
+
+}
+
+.btn-primary:hover {
+    background-color: #afafaf;
+    color: #242424;
+    border: #242424 solid 1px;
+}
+
+.form-control {
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-left: 80px;
+    margin-top: 3px;
+}
