@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="mypage.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- <script src="mypage.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
 
 </head>
 
@@ -27,7 +27,7 @@
         <div class="bar_right">
             <!-- {% if not user.is_authenticated %} -->
 
-            <a class="login" href="login.html">로그인</a><!-- href="/login" -->
+            <a class="login" href="login.html">로그인</a><!--href="/login"-->
             <a class="signup" href="signup.html">회원가입</a> <!-- href="/signup" -->
 
             <!-- {% else %} -->
@@ -38,71 +38,91 @@
             <!-- {% endif %} -->
         </div>
     </div>
-    <form>
-        <div class="container text-center">
-            <div class="row">
-                <div class="row align-items-center" style=" position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                    <div class="col">
-                        <img id="my_profile_img" style="width: 400px; height: 400px; object-fit: cover;" class="img-fluid rounded-circle border border-3 shadow"> <br>
-                        <label for="update_profile_img" class="btn btn-outline-secondary shadow-sm" onclick="onClickUpload()" style="margin: 20px;">이미지 업로드</label>
-                        <input style="display: none;" id="update_profile_img" type="file" accept="image/*"  onchange="handleProfilePreview(this)"><br>
-                    </div>
-                    
-                    <div class="col" style="margin-right: 100px;">
-                            <ul class="list-group list-group-horizontal-xxl shadow-sm">
-                                <li class="list-group-item col-2 list-group-item-secondary fw-semibold" style="display: flex; align-items: center; justify-content: flex-end;">이메일 : </li>
-                                <li class="list-group-item col-10" style="display: flex;"> <span id="my_email" class="btn"></span></li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal-xxl shadow-sm" style="margin-top: 10px;">
-                                <li class="list-group-item col-2 list-group-item-secondary fw-semibold" style="display: flex; align-items: center; justify-content: flex-end;">비밀번호 : </li>
-                                <li class="list-group-item col-10" style="display: flex;"><button type="button" id="update_password" onclick="OpenModal()"  class="btn btn-outline-secondary shadow-sm">변경하기</button></li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal-xxl shadow-sm" style="margin-top: 10px;">
-                                <li class="list-group-item col-2 list-group-item-secondary fw-semibold" style="display: flex; align-items: center; justify-content: flex-end;">username : </li>
-                                <li class="list-group-item col-10" style="display: flex;"><input id="update_username" class="btn border border-secondary-subtle rounded w-100"></li>
-                            </ul>
-                            <ul class="list-group list-group-horizontal-xxl shadow-sm" style="margin-top: 10px;">
-                                <li class="list-group-item col-2 list-group-item-secondary fw-semibold" style="display: flex; align-items: center; justify-content: flex-end;">생년월일 : </li>
-                                <li class="list-group-item col-10" style="display: flex;"><input type="date" id="update_birthday" class="btn border border-secondary-subtle rounded w-100"></span></li>
-                            </ul>
-                            <span id="profile_update_errors" style="color: red;"></span> <br>
+    <div class="profile_box">
+        <div class="profile_img">
+            <img src="img/profile.jpg" id="profile_img_mypage" alt="profile" width="200px" height="200px">
+            <button type="button" class="upload_btn_mypage" onclick="onClickUpload()" id="image_mypage"
+                style="margin-top: 20px;">파일
+                업로드</button>
+            <input id="upload_file" type="file" accept="image/*" onchange="loadFile(event)"
+                style="visibility: hidden;" />
+            <script>
+                function onClickUpload() {
+                    let myInput = document.getElementById('upload_file')
+                    myInput.click()
+                }
+                var loadFile = function (event) {
+                    var output = document.getElementById('profile_img_mypage')
+                    output.style.display = ''
+                    output.src = URL.createObjectURL(event.target.files[0])
+                    output.onload = function () {
+                        URL.revokeObjectURL(output.src)
+                    }
+                }
+            </script>
+        </div>
+        <div class="profile_info">
+            <h2>이름</h2>
+            <h3>이메일</h3>
+            <h3>생년월일</h3>
+            <div class="password_edit">
+                <h3>비밀번호</h3>
+                <button type="button" class="password_btn_mypage" onclick="OpenModal()" id="password">변경</button>
+                <script>
+                    function OpenModal() {
+                        document.getElementById("myModal").style.display = "block";
 
-                        <button type="button" id="update_btn" onclick="handleUpdateProfile()" class="btn btn-outline-secondary shadow-sm" style="margin: 0px;">수정하기</button>
-                    </div>
-                </div>
+                    }
+                    function CloseModal() {
+                        document.getElementById("myModal").style.display = "none";
+                        document.getElementById("pres_password").value = "";
+                        document.getElementById("new_password").value = "";
+                        document.getElementById("new_password_check").value = "";
+                        document.getElementById("pw_update_errors").innerText = "";
+                        console.log("CloseModal")
+                    }
+                    function UpdatePassword(){
+                        CloseModal();
+                        console.log("UpdatePassword")
+                    }
+                </script>
             </div>
         </div>
-
-        
-    </form>
-
-    <div id="modalContainer" class="modal hidden" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
+    </div>
+    <button type="button" class="edit_btn_mypage" id="edit">수정</button>
+    <div class="myModal" id="myModal">
+        <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title"><b>비밀번호 변경</b></h5>
-              <button id="modalCloseButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <span class="close" id="modalCloseButton" onclick="CloseModal()">&times;</span>
+                <h2>비밀번호 변경</h2>
             </div>
             <div class="modal-body">
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">현재 비밀번호</span>
-                    <input type="password" id="update_present_pw" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">새로운 비밀번호</span>
-                    <input type="password" id="update_password_" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="inputGroup-sizing-default">비밀번호 확인</span>
-                    <input type="password" id="update_password_check" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                </div>
-                <span id="pw_update_errors" style="color: red;"></span> <br>
+                <form action="">
+                    <div class="form-group">
+                        <label for="password" class="modal_text">현재 비밀번호 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="password" class="form-control" id="pres_password" placeholder="현재 비밀번호를 입력하세요.">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="new_password" class="modal_text">새 비밀번호
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="password" class="form-control" id="new_password" placeholder="새 비밀번호를 입력하세요.">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="new_password_check" class="modal_text">비밀번호 확인
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="password" class="form-control" id="new_password_check"
+                            placeholder="새 비밀번호를 다시 입력하세요.">
+                    </div>
+
+                    <span id="pw_update_errors" style="color: red;"></span> <br>
+                    <button type="submit" class="btn btn-primary" onclick="UpdatePassword()">변경</button>
+                </form>
             </div>
-            <div class="modal-footer">
-              <button type="button" id="pw_submit_btn" class="btn btn-secondary" onclick="handleUpdatePassword()" data-bs-dismiss="modal">수정</button>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+
 </body>
+  
 </html>

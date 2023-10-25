@@ -361,36 +361,459 @@ a {
 }
 
 .blank {
-  width: 80%;
-  color: #242424;
-  font-size: 20px;
-  font-family: "Ubuntu", sans-serif;
-  line-height: 30px;
-  background-color: #f1f1f1;
-  border: none;
+    width: 80%;
+    color: #242424;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 30px;
+    background-color: #f1f1f1;
+    border: none;
 }
-.buttons {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin-top: 5%;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
+.buttons{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+    margin-left:auto;
+    margin-right:auto;
+    width: 60%;
 }
-.btn {
-  width: 40%;
-  height: 50px;
-  background-color: #e6e6e6;
-  margin: 0 auto;
-  color: #242424;
-  font-size: 20px;
-  font-family: "Ubuntu", sans-serif;
-  line-height: 50px;
-  border-radius: 15px;
+.btn{
+    width: 40%;
+    height: 50px;
+    background-color: #e6e6e6;
+    margin: 0 auto;
+    color: #242424;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 50px;
+    border-radius: 15px;
 }
-.btn:hover {
-  background-color: #242424;
-  color: #e6e6e6;
-  cursor: url(img/click.cur), auto;
+.btn:hover{
+    background-color: #242424;
+    color:#e6e6e6;
+    cursor: url(img/click.cur), auto;
+}
+
+
+
+/* manual.html */
+/* manual.html */
+/* manual.html */
+
+
+
+.register_box {
+    width: 70%;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+}
+
+.left_info {
+    width: 35%;
+    height: 93%;
+    margin: auto;
+    background-color: #242424;
+    align-items: center;
+    border-radius: 15px;
+
+}
+
+.right_info {
+    width: 60%;
+    height: 93%;
+    margin: auto 0;
+    margin-right: auto;
+    background-color: #242424;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.registerpage {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.register_btn {
+    width: 100px;
+    height: 50px;
+    margin-right: 15%;
+    margin-top: 20px;
+    float: right;
+    justify-content: center;
+    background-color: #242424;
+    border-radius: 15px;
+    color: #e6e6e6;
+    align-items: center;
+    line-height: 50px;
+    font-size: 17px;
+}
+
+.register_btn:hover {
+    background-color: #e6e6e6;
+    color: #242424;
+}
+
+.register_image {
+    width: 50%;
+    height: 50%;
+    aspect-ratio: auto 1 /1;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 15px;
+}
+
+.register_pill_img {
+    width: 100%;
+    height: 80%;
+    background-color: gray;
+    border-radius: 15px;
+}
+
+.upload_btn_register {
+    width: 100%;
+    height: 30px;
+    margin-top: 20px;
+    justify-content: center;
+    background-color: #242424;
+    border-radius: 15px;
+    color: #e6e6e6;
+    align-items: center;
+    line-height: 30px;
+    font-size: 17px;
+}
+
+.upload_btn_register:hover {
+    background-color: #e6e6e6;
+    color: #242424;
+    cursor: url(img/click.cur), auto;
+}
+
+.company {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company_title {
+    color: #e6e6e6;
+    font-size: 20px;
+    width: 30%;
+    text-align: left;
+
+}
+
+.company_input {
+    width: 50%;
+    height: 30px;
+    background-color: #e6e6e6;
+    border-radius: 15px;
+}
+
+#company_input {
+    width: 100%;
+    height: 100%;
+    background-color: #e6e6e6;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+}
+
+.pill_name {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pill_title {
+    color: #e6e6e6;
+    font-size: 20px;
+    width: 30%;
+    text-align: left;
+}
+
+.pill_input {
+    width: 50%;
+    height: 30px;
+    background-color: #e6e6e6;
+    border-radius: 15px;
+}
+
+#pill_input {
+    width: 100%;
+    height: 100%;
+    background-color: #e6e6e6;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+}
+
+.dropdown-label {
+    font-size: 12px;
+    margin: 10px;
+    font-weight: bold;
+    color: #242424;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn_icon {
+    font-family: 'Material Icons';
+}
+
+.dropbtn {
+    display: block;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    height: 30px;
+    background-color: #e6e6e6;
+    color: #242424;
+    width: 104%;
+    text-align: left;
+    cursor: url(img/click.cur), auto;
+}
+
+.dropdown-content {
+    display: none;
+    font-weight: 600;
+    background-color: #e6e6e6;
+    min-width: 104%;
+    height: 160px;
+    overflow: scroll;
+    cursor: url(img/click.cur), auto;
+}
+
+.dropdown-content::-webkit-scrollbar {
+    width: 10x;
+    height: 10px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #242424;
+}
+
+.dropdown-content div {
+    display: block;
+    text-decoration: none;
+    color: #242424;
+    font-size: 12px;
+    padding: 12px 20px;
+}
+
+.dropdown-content div:hover {
+    background-color: #e6e6e6;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.color_picker {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+    height: 70px;
+    display: flex;
+    cursor: url(img/cursor.cur), auto;
+}
+
+.color_title {
+    color: #e6e6e6;
+    font-size: 20px;
+    height: 20px;
+    width: 20%;
+    line-height: 70px;
+    text-align: center;
+    float: left;
+    cursor: url(img/cursor.cur), auto;
+
+}
+
+
+#backgroundColorPicker {
+    margin-left: 10px;
+    width: 80%;
+    height: 70px;
+    cursor: url(img/click.cur), auto;
+}
+
+.pill_text {
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+}
+
+.pill_text_title {
+    color: #e6e6e6;
+    font-size: 20px;
+    height: 40px;
+    text-align: center;
+    width: 20%;
+    line-height: 40px;
+}
+
+.input_AT {
+    width: 80%;
+    height: 100%;
+    margin-left: 10px;
+    cursor: url(img/click.cur), auto;
+}
+
+#pill_text {
+    width: 100%;
+    height: 100%;
+    background-color: #e6e6e6;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+.pill_sort {
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+
+}
+
+.input_frame{
+    width: 80%;
+    height: 100%;
+    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.pill_sorting{
+    width: 20%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    cursor: url(img/click.cur), auto;
+}
+.pill_sorting_text{
+    color: #e6e6e6;
+    font-size: 17px;
+    height: 20px;
+    text-align: center;
+    width: 100%;
+    line-height: 20px;
+}
+
+
+
+/* mypage-modal */
+.password_btn_mypage {
+    background-color: #242424;
+    border: none;
+    border-radius: 10px;
+
+    width: 100px;
+    height: 28px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #e6e6e6;
+    margin-left: 30px;
+}
+
+.password_edit {
+    display: flex;
+    align-items: center;
+}
+
+.password_btn_mypage:hover {
+    background-color: #e6e6e6;
+    color: #242424;
+    border: #242424 solid 1px;
+}
+
+.myModal {
+    display: none;
+    background-color: #e6e6e6;
+    border: #747474 solid 3px;
+    color: #242424;
+    border-radius: 15px;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    width: 500px;
+}
+
+.close {
+    color: #242424;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+    margin-right: 10px;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    display: block;
+    background-color: #e6e6e6;
+    color: #242424;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal_text {
+    font-size: 20px;
+    margin-left: 80px;
+}
+
+.myModal h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-left: 30px;
+}
+
+.btn-primary {
+    background-color: #242424;
+    border: none;
+    margin-top: 20px;
+    border-radius: 10px;
+    line-height: 40px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #e6e6e6;
+    float: center;
+    margin-left: 200px;
+    margin-bottom: 30px;
+
+}
+
+.btn-primary:hover {
+    background-color: #afafaf;
+    color: #242424;
+    border: #242424 solid 1px;
+}
+
+.form-control {
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-left: 80px;
+    margin-top: 3px;
 }
