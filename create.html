@@ -10,6 +10,7 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 </head>
+<script src="./script/DrugCreate.js"></script>
 
 <body>
 
@@ -55,12 +56,12 @@
             <p>🔽예시 사진🔽</p>
             <img src="img/pill_sample.png" alt="sample" width="250px" height="250px" id="pill_sample">
         </div>
-        <div class="img_box">
+        <div class="img_box" enctype="multipart/form-data">
             <img src="img/images.jpg" alt="약 사진" id="output" width="500" height="500" ; />
             <div class="input-button">
                 <button type="button" class="upload_btn" onclick="onClickUpload()" id="image"
                     style="margin-top: 20px;">파일 업로드</button>
-                <button type="button" class="upload_btn" onclick="onClickUpload()" id="image"
+                <button type="button" class="upload_btn" onclick="DrugCreate()" id="image"
                     style="margin-top: 20px;">등록</button>
                 <input id="upload_file" type="file" accept="image/*" onchange="loadFile(event)"
                     style="visibility: hidden;" />
