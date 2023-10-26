@@ -1,159 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
+  <head>
     <meta charset="UTF-8" />
     <title>My Page | AL-I</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script/mypage.js"></script>
-    <script>
-        $(document).ready(function () {
-            const accessToken = localStorage.getItem("access");
-            const storage = JSON.parse(localStorage.getItem("payload"))
-            const user_id = storage['user_id']
-            let temp_html1 = ``
-
-            if (user_id) {
-                temp_html1 = `
-      <a class="logout" onclick="handleLogout()">로그아웃</a>
-      <a class="profile" href="mypage.html">
-        <img class="bar_profile" src="img/profile.jpg" id="my_profile_img" alt="profile" />
-      </a>
-      `
-            } else {
-                temp_html1 = `<a class="login" href="login.html">로그인</a
-              >
-              <a class="signup" href="signup.html">회원가입</a>
-              <a class="profile" href="mypage.html">
-              <img class="bar_profile" src="img/profile.jpg" id="my_profile_img"
-                alt="profile" />
-            </a>`
-            }
-            //console.log(temp_html1)
-            $('#nav_bar').append(temp_html1);
-            console.log("append")
-        });
-    </script>
-
-</head>
-
-
+  </head>
 <head>
-    <meta charset="UTF-8" />
-    <title>My Page | AL-I</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="script/mypage.js"></script>
-    <style>
-        .profile_info li {
-            list-style-type: none;
-        }
-
-        .profile_info h3 {
-            display: flex;
-
-        }
-
-        .password_edit {
-            width: 100%;
-            display: flex;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>My Page | AL-I</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="script/mypage.js"></script>
+  <style>
+    .profile_info li {
+      list-style-type: none;
+    }
+    .profile_info h3 {
+      display: flex;
+    }
+    .password_edit {
+      width: 100%;
+      display: flex;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="bar">
-        <a class="bar_left" href="main.html">
-            <div class="logo">
-                <img src="img/pill.png" alt="logo" width="80px" height="80px" />
-            </div>
-            <div class="title">
-                <h1>AL-I</h1>
-            </div>
-        </a>
-        <div class="bar_right" id="nav_bar">
-
-        </div>
+  <div class="bar">
+    <a class="bar_left" href="main.html">
+      <div class="logo">
+        <img src="img/pill.png" alt="logo" width="80px" height="80px" />
+      </div>
+      <div class="title">
+        <h1>AL-I</h1>
+      </div>
+    </a>
+    <div class="bar_right">
+      <a class="login" href="login.html">로그인</a><!--href="/login"-->
+      <a class="signup" href="signup.html">회원가입</a>
+      <!-- href="/signup" -->
+      <!-- {% else %} -->
+      <a class="logout" href="logout.html">로그아웃</a><!-- href="/logout" -->
+      <a class="profile" href="mypage.html"></a>
+      <!-- href="/profile/{{ user.username }}" -->
+      <img class="bar_profile" src="img/profile.jpg" id="nav_profile_img" alt="profile" />
+      
     </div>
-
-    <div class="profile_box">
-        <div class="profile_img">
-            <img src="img/profile.jpg" id="my_profile_img" alt="profile" width="200px" height="200px" />
-            <button type="button" class="upload_btn_mypage_" onclick="onClickUpload()" style="margin-top: 20px">
-                파일 업로드
-            </button>
-            <input id="update_profile_img" type="file" accept="image/*" onchange="loadFile(event)"
-                style="visibility: hidden" />
+  </div>
+  <div class="profile_box">
+    <div class="profile_img">
+      <img src="img/profile.jpg" id="my_profile_img" alt="profile" width="200px" height="200px" />
+      <button type="button" class="upload_btn_mypage_" onclick="onClickUpload()" style="margin-top: 20px">
+        파일 업로드
+      </button>
+      <input id="update_profile_img" type="file" accept="image/*" onchange="loadFile(event)"
+        style="visibility: hidden" />
+    </div>
+    
+    <div class="profile_info">
+      <br><br>
+      <div class="profile_info_text">이메일: <li id="my_email"></li>
+      </div>
+      <div class="profile_info_text">나의 약 정보: <li id="drug"></li>
+      </div>
+      <div class="profile_info_text">유저이름: <li id="username"></li>
+        <input class="update_profile_text" id="update_username">
+      </div>
+      <div class="profile_info_text">닉네임: <li id="nickname"></li>
+        <input id="update_nickname" class="update_profile_text">
+      </div>
+      <div class="password_edit">
+        <div class="profile_info_text">비밀번호
+          <button type="button" class="password_btn_mypage" onclick="OpenModal()" id="password">
+            변경
+          </button>
         </div>
-
-        <div class="profile_info">
-            <br><br>
-            <div class="profile_info_text">이메일: <li id="my_email"></li>
-            </div>
-
-            <div class="profile_info_text">유저이름: <li id="username"></li>
-                <input class="update_profile_text" id="update_username">
-            </div>
-
-            <div class="profile_info_text">닉네임: <li id="nickname"></li>
-                <input id="update_nickname" class="update_profile_text">
-            </div>
-
-
-            <div class="password_edit">
-
-                <div class="profile_info_text">비밀번호
-                    <button type="button" class="password_btn_mypage" onclick="OpenModal()" id="password">
-                        변경
-                    </button>
-                </div>
-                <span id="profile_update_errors" style="color: red;"></span> <br>
-
-            </div>
-            <button type="button" class="edit_btn_mypage" id="edit" onclick="handleUpdateProfile()">
-                수정
-            </button>
-            <div class="myModal" id="myModal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close" id="modalCloseButton" onclick="CloseModal()">&times;</span>
-                        <h2>비밀번호 변경</h2>
-                    </div>
-                    <div class="modal-body">
-                        <form action="">
-                            <div class="form-group">
-                                <label for="password" class="modal_text">현재 비밀번호 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input type="password" class="form-control" id="update_present_pw"
-                                    placeholder="현재 비밀번호를 입력하세요." />
-                            </div>
-                            <br />
-                            <div class="form-group">
-                                <label for="update_password_" class="modal_text">새 비밀번호
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input type="password" class="form-control" id="update_password_"
-                                    placeholder="새 비밀번호를 입력하세요." />
-                            </div>
-                            <br />
-                            <div class="form-group">
-                                <label for="update_password_check" class="modal_text">비밀번호 확인
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                <input type="password" class="form-control" id="update_password_check"
-                                    placeholder="새 비밀번호를 다시 입력하세요." />
-                            </div>
-
-                            <span id="pw_update_errors" style="color: red"></span> <br />
-                            <button type="submit" class="btn btn-primary" id="pw_submit_btn"
-                                onclick="handleUpdatePassword()">
-                                변경
-                    </div>
-                </div>
-            </div>
-
-
-</body>
-
-</html>
+        <span id="profile_update_errors" style="color: red;"></span> <br>
+      </div>
+      <button type="button" class="edit_btn_mypage" id="edit" onclick="handleUpdateProfile()">
+        수정
+      </button>
+      <div class="myModal" id="myModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close" id="modalCloseButton" onclick="CloseModal()">&times;</span>
+            <h2>비밀번호 변경</h2>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="form-group">
+                <label for="password" class="modal_text">현재 비밀번호 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="password" class="form-control" id="update_present_pw" placeholder="현재 비밀번호를 입력하세요." />
+              </div>
+              <br />
+              <div class="form-group">
+                <label for="update_password_" class="modal_text">새 비밀번호
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="password" class="form-control" id="update_password_" placeholder="새 비밀번호를 입력하세요." />
+              </div>
+              <br />
+              <div class="form-group">
+                <label for="update_password_check" class="modal_text">비밀번호 확인 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="password" class="form-control" id="update_password_check"
+                  placeholder="새 비밀번호를 다시 입력하세요." />
+              </div>
+              <span id="pw_update_errors" style="color: red"></span> <br />
+              <button type="submit" class="btn btn-primary" id="pw_submit_btn" onclick="handleUpdatePassword()">
+                변경
+          </div>
+        </div>
+      </div>

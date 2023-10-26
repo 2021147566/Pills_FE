@@ -36,6 +36,8 @@ async function request() {
   document.getElementById("update_username").value = data.username;
   document.getElementById("nickname").innerText = data.nickname;
   document.getElementById("update_nickname").value = data.nickname;
+  document.getElementById("drug").innerText = data.durgslist;
+  console.log(drug_name);
 }
 function OpenModal() {
   document.getElementById("myModal").style.display = "block";
@@ -139,5 +141,4 @@ var loadFile = function (event) {
   output.onload = function () {
     URL.revokeObjectURL(output.src);
   };
-
 };

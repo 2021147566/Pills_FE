@@ -1,75 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Singup | AL-I</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Signup | AL-I</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            text-align: center;
-        }
+      body {
+        text-align: center;
+      }
     </style>
     <script src="script/signup.js"></script>
-</head>
+  </head>
 
-<body>
-    <br><br><br><br><br><br><br>
+  <body>
+    <br /><br /><br /><br /><br /><br /><br />
     <h1>Signup</h1>
     <div class="login_sn">
-        <div class="content">
-            <div class="text">
-                <div class="text_box">
-                    Email
-                </div>
-                <div class="text_box">
-                    Nickname
-                </div>
-                <div class="text_box">
-                    Username
-                </div>
-                <div class="text_box">
-                    Password
-                </div>
-                <div class="text_box">
-                    P.W Check
-                </div>
-
-            </div>
-            <div class="input" style="margin-top:13px;">
-                <div class="input_box">
-                    <label for="email" style="font-family: 'Ubuntu', monospace; font-size: 30px;"></label>
-                    <input type="text" class="blank" style="margin-bottom: 15px;" id="email" name="email" />
-                </div>
-                <div class="input_box">
-                    <label for="nickname" style="font-family: 'Ubuntu', monospace; font-size: 30px;"></label>
-                    <input type="text" class="blank" style="margin-bottom: 15px;" id="nickname" name="nickname" />
-                </div>
-                <div class="input_box">
-                    <label for="username" style="font-family: 'Ubuntu', monospace; font-size: 30px;"></label>
-                    <input type="text" class="blank" style="margin-bottom: 15px;" id="username" name="username" />
-                </div>
-                <div class="input_box">
-                    <label for="email" style="font-family: 'Ubuntu', monospace; font-size: 30px;"></label>
-                    <input type="password" class="blank" style="margin-bottom: 15px;" id="password" name="email" />
-                </div>
-                <div class="input_box">
-                    <label for="email" style="font-family: 'Ubuntu', monospace; font-size: 30px;"></label>
-                    <input type="password" class="blank" style="margin-bottom: 15px;" id="passwordcheck" name="email" />
-                </div>
-
-
-            </div>
+      <div class="content">
+        <div class="text">
+          <div class="text_box">Email</div>
+          <div class="text_box">Nickname</div>
+          <div class="text_box">Username</div>
+          <div class="text_box">Password</div>
+          <div class="text_box">P.W Check</div>
         </div>
-        <div class="buttons">
-            <button type="submit" id="signup_btn" class="btn" onclick="handleSignup()">Signup</button>
+        <div class="input" style="margin-top: 13px">
+          <div class="input_box">
+            <label
+              for="email"
+              style="font-family: 'Ubuntu', monospace; font-size: 30px"
+            ></label>
+            <input
+              type="text"
+              class="blank"
+              style="margin-bottom: 15px"
+              id="email"
+              name="email"
+            />
+          </div>
+          <div class="input_box">
+            <label
+              for="nickname"
+              style="font-family: 'Ubuntu', monospace; font-size: 30px"
+            ></label>
+            <input
+              type="text"
+              class="blank"
+              style="margin-bottom: 15px"
+              id="nickname"
+              name="nickname"
+            />
+          </div>
+          <div class="input_box">
+            <label
+              for="username"
+              style="font-family: 'Ubuntu', monospace; font-size: 30px"
+            ></label>
+            <input
+              type="text"
+              class="blank"
+              style="margin-bottom: 15px"
+              id="username"
+              name="username"
+            />
+          </div>
+          <div class="input_box">
+            <label
+              for="email"
+              style="font-family: 'Ubuntu', monospace; font-size: 30px"
+            ></label>
+            <input
+              type="password"
+              class="blank"
+              style="margin-bottom: 15px"
+              id="password"
+              name="email"
+            />
+          </div>
+          <div class="input_box">
+            <label
+              for="email"
+              style="font-family: 'Ubuntu', monospace; font-size: 30px"
+            ></label>
+            <input
+              type="password"
+              class="blank"
+              style="margin-bottom: 15px"
+              id="passwordcheck"
+              name="email"
+            />
+          </div>
         </div>
+      </div>
+      <div class="buttons">
+        <button
+          type="submit"
+          id="signup_btn"
+          class="btn"
+          onclick="handleSignup()"
+        >
+          Signup
+        </button>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
