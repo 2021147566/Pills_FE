@@ -1,392 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Register | AL-I</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="login.js"></script>
-    <script src="script/manual_click.js"></script>
-    <script src="script/mypage.js"></script>
-  </head>
 
-  <body>
-    <div class="bar">
-      <a class="bar_left" href="main.html">
-        <div class="logo">
-          <img src="img/pill.png" alt="logo" width="80px" height="80px" />
-        </div>
-        <div class="title">
-          <h1>AL-I</h1>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Register | AL-I</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="login.js"></script>
+  <script src="script/manual_click.js"></script>
+  <script src="script/mypage.js"></script>
+  <script>
+    $(document).ready(function () {
+      const accessToken = localStorage.getItem("access");
+      const storage = JSON.parse(localStorage.getItem("payload"))
+      const user_id = storage['user_id']
+      let temp_html1 = ``
+
+      if (user_id) {
+        temp_html1 = `
+      <a class="logout" onclick="handleLogout()">로그아웃</a>
+      <a class="profile" href="mypage.html">
+        <img class="bar_profile" src="img/profile.jpg" id="my_profile_img" alt="profile" />
       </a>
-      <div class="bar_right">
-        <!-- {% if not user.is_authenticated %} -->
+      `
+      } else {
+        temp_html1 = `<a class="login" href="login.html">로그인</a
+              >
+              <a class="signup" href="signup.html">회원가입</a>
+              <a class="profile" href="mypage.html">
+              <img class="bar_profile" src="img/profile.jpg" id="my_profile_img"
+                alt="profile" />
+            </a>`
+      }
+      //console.log(temp_html1)
+      $('#nav_bar').append(temp_html1);
+      console.log("append")
+    });
+  </script>
+</head>
 
-        <a class="login" href="login.html">로그인</a
-        ><!-- href="/login" -->
-        <a class="signup" href="signup.html">회원가입</a>
-        <!-- href="/signup" -->
-
-        <!-- {% else %} -->
-        <a class="logout" href="logout.html">로그아웃</a
-        ><!-- href="/logout" -->
-        <a class="profile" href="mypage.html"
-          ><!-- href="/profile/{{ user.username }}" -->
-          <img
-            class="bar_profile"
-            src="img/profile.jpg"
-            id="my_profile_img"
-            alt="profile"
-          /><!-- src = "{{ user. profile }}" -->
-        </a>
-        <!-- {% endif %} -->
+<body>
+  <div class="bar">
+    <a class="bar_left" href="main.html">
+      <div class="logo">
+        <img src="img/pill.png" alt="logo" width="80px" height="80px" />
       </div>
+      <div class="title">
+        <h1>AL-I</h1>
+      </div>
+    </a>
+    <div class="bar_right" id="nav_bar">
+
     </div>
+  </div>
 
-    <h1 class="registerpage">약 등록 요청</h1>
+  <h1 class="registerpage">약 등록 요청</h1>
 
-    <div class="register_box">
-      <div class="left_info">
-        <div class="register_image">
-          <img
-            src="img/pill_sample.png"
-            class="register_pill_img"
-            id="register_pill_img"
-            alt="register_pill_img"
-          />
-          <button
-            type="button"
-            class="upload_btn_register"
-            onclick="onClickUpload()"
-            id="upload_btn_register"
-          >
-            파일 업로드
-          </button>
-          <input
-            id="upload_file"
-            type="file"
-            accept="image/*"
-            onchange="loadFile(event)"
-            style="visibility: hidden"
-          />
+  <div class="register_box">
+    <div class="left_info">
+      <div class="register_image">
+        <img src="img/pill_sample.png" class="register_pill_img" id="register_pill_img" alt="register_pill_img" />
+        <button type="button" class="upload_btn_register" onclick="onClickUpload()" id="upload_btn_register">
+          파일 업로드
+        </button>
+        <input id="upload_file" type="file" accept="image/*" onchange="loadFile(event)" style="visibility: hidden" />
+      </div>
+
+      <div class="company_name">
+        <div class="company">
+          <div class="company_title">제조사</div>
+          <div class="company_input">
+            <input type="text" name="company_input" id="company_input" placeholder="제조사를 입력하세요." />
+          </div>
         </div>
-
-        <div class="company_name">
-          <div class="company">
-            <div class="company_title">제조사</div>
-            <div class="company_input">
-              <input
-                type="text"
-                name="company_input"
-                id="company_input"
-                placeholder="제조사를 입력하세요."
-              />
-            </div>
+        <div class="pill_name">
+          <div class="pill_title">약 이름</div>
+          <div class="pill_input">
+            <input type="text" name="pill_input" id="pill_input" placeholder="약 이름을 입력하세요." />
           </div>
-          <div class="pill_name">
-            <div class="pill_title">약 이름</div>
-            <div class="pill_input">
-              <input
-                type="text"
-                name="pill_input"
-                id="pill_input"
-                placeholder="약 이름을 입력하세요."
-              />
-            </div>
-          </div>
-          <div class="pill_name">
-            <div class="pill_title">모양</div>
-            <div class="pill_input">
-              <button class="dropbtn">
-                <span class="dropbtn_icon">💊</span>
-                <span class="dropbtn_content">모양 선택</span>
-                <span
-                  class="dropbtn_click"
-                  style="float: right"
-                  onclick="dropdown()"
-                  >🔽</span
-                >
-              </button>
-              <div class="dropdown-content">
-                <div
-                  class="pill_frame"
-                  id="원형"
-                  onclick="showMenu(this.innerText)"
-                >
-                  원형
-                </div>
-                <div
-                  class="pill_frame"
-                  id="타원형"
-                  onclick="showMenu(this.innerText)"
-                >
-                  타원형
-                </div>
-                <div
-                  class="pill_frame"
-                  id="반원형"
-                  onclick="showMenu(this.innerText)"
-                >
-                  반원형
-                </div>
-                <div
-                  class="pill_frame"
-                  id="장방형"
-                  onclick="showMenu(this.innerText)"
-                >
-                  장방형
-                </div>
-                <div
-                  class="pill_frame"
-                  id="삼각형"
-                  onclick="showMenu(this.innerText)"
-                >
-                  삼각형
-                </div>
-                <div
-                  class="pill_frame"
-                  id="사각형"
-                  onclick="showMenu(this.innerText)"
-                >
-                  사각형
-                </div>
-                <div
-                  class="pill_frame"
-                  id="마름모"
-                  onclick="showMenu(this.innerText)"
-                >
-                  마름모
-                </div>
-                <div
-                  class="pill_frame"
-                  id="오각형"
-                  onclick="showMenu(this.innerText)"
-                >
-                  오각형
-                </div>
-                <div
-                  class="pill_frame"
-                  id="육각형"
-                  onclick="showMenu(this.innerText)"
-                >
-                  육각형
-                </div>
-                <div
-                  class="pill_frame"
-                  id="팔각형"
-                  onclick="showMenu(this.innerText)"
-                >
-                  팔각형
-                </div>
-                <div
-                  class="pill_frame"
-                  id="기타"
-                  onclick="showMenu(this.innerText)"
-                >
-                  기타
-                </div>
+        </div>
+        <div class="pill_name">
+          <div class="pill_title">모양</div>
+          <div class="pill_input">
+            <button class="dropbtn">
+              <span class="dropbtn_icon">💊</span>
+              <span class="dropbtn_content">모양 선택</span>
+              <span class="dropbtn_click" style="float: right" onclick="dropdown()">🔽</span>
+            </button>
+            <div class="dropdown-content">
+              <div class="pill_frame" id="원형" onclick="showMenu(this.innerText)">
+                원형
               </div>
-              <script>
-                window.onload = () => {
-                  document.querySelector(".dropbtn_click").onclick = () => {
-                    dropdown();
-                  };
-                  document.getElementsByClassName("pill_frame").onclick =
-                    () => {
-                      showMenu(value);
-                    };
-                  dropdown = () => {
-                    var v = document.querySelector(".dropdown-content");
-                    var dropbtn = document.querySelector(".dropbtn");
-                    v.classList.toggle("show");
-                    dropbtn.style.borderColor = "rgb(94, 94, 94)";
-                  };
-
-                  showMenu = (value) => {
-                    var dropbtn_icon = document.querySelector(".dropbtn_icon");
-                    var dropbtn_content =
-                      document.querySelector(".dropbtn_content");
-                    var dropbtn_click =
-                      document.querySelector(".dropbtn_click");
-                    var dropbtn = document.querySelector(".dropbtn");
-
-                    dropbtn_icon.innerText = "";
-                    dropbtn_content.innerText = value;
-                    dropbtn_content.style.color = "#252525";
-                    dropbtn.style.borderColor = "#3992a8";
-                  };
+              <div class="pill_frame" id="타원형" onclick="showMenu(this.innerText)">
+                타원형
+              </div>
+              <div class="pill_frame" id="반원형" onclick="showMenu(this.innerText)">
+                반원형
+              </div>
+              <div class="pill_frame" id="장방형" onclick="showMenu(this.innerText)">
+                장방형
+              </div>
+              <div class="pill_frame" id="삼각형" onclick="showMenu(this.innerText)">
+                삼각형
+              </div>
+              <div class="pill_frame" id="사각형" onclick="showMenu(this.innerText)">
+                사각형
+              </div>
+              <div class="pill_frame" id="마름모" onclick="showMenu(this.innerText)">
+                마름모
+              </div>
+              <div class="pill_frame" id="오각형" onclick="showMenu(this.innerText)">
+                오각형
+              </div>
+              <div class="pill_frame" id="육각형" onclick="showMenu(this.innerText)">
+                육각형
+              </div>
+              <div class="pill_frame" id="팔각형" onclick="showMenu(this.innerText)">
+                팔각형
+              </div>
+              <div class="pill_frame" id="기타" onclick="showMenu(this.innerText)">
+                기타
+              </div>
+            </div>
+            <script>
+              window.onload = () => {
+                document.querySelector(".dropbtn_click").onclick = () => {
+                  dropdown();
                 };
-                window.onclick = (e) => {
-                  if (!e.target.matches(".dropbtn_click")) {
-                    var dropdowns =
-                      document.getElementsByClassName("dropdown-content");
+                document.getElementsByClassName("pill_frame").onclick =
+                  () => {
+                    showMenu(value);
+                  };
+                dropdown = () => {
+                  var v = document.querySelector(".dropdown-content");
+                  var dropbtn = document.querySelector(".dropbtn");
+                  v.classList.toggle("show");
+                  dropbtn.style.borderColor = "rgb(94, 94, 94)";
+                };
 
-                    var dropbtn_icon = document.querySelector(".dropbtn_icon");
-                    var dropbtn_content =
-                      document.querySelector(".dropbtn_content");
-                    var dropbtn_click =
-                      document.querySelector(".dropbtn_click");
-                    var dropbtn = document.querySelector(".dropbtn");
+                showMenu = (value) => {
+                  var dropbtn_icon = document.querySelector(".dropbtn_icon");
+                  var dropbtn_content =
+                    document.querySelector(".dropbtn_content");
+                  var dropbtn_click =
+                    document.querySelector(".dropbtn_click");
+                  var dropbtn = document.querySelector(".dropbtn");
 
-                    var i;
-                    for (i = 0; i < dropdowns.length; i++) {
-                      var openDropdown = dropdowns[i];
-                      if (openDropdown.classList.contains("show")) {
-                        openDropdown.classList.remove("show");
-                      }
+                  dropbtn_icon.innerText = "";
+                  dropbtn_content.innerText = value;
+                  dropbtn_content.style.color = "#252525";
+                  dropbtn.style.borderColor = "#3992a8";
+                };
+              };
+              window.onclick = (e) => {
+                if (!e.target.matches(".dropbtn_click")) {
+                  var dropdowns =
+                    document.getElementsByClassName("dropdown-content");
+
+                  var dropbtn_icon = document.querySelector(".dropbtn_icon");
+                  var dropbtn_content =
+                    document.querySelector(".dropbtn_content");
+                  var dropbtn_click =
+                    document.querySelector(".dropbtn_click");
+                  var dropbtn = document.querySelector(".dropbtn");
+
+                  var i;
+                  for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains("show")) {
+                      openDropdown.classList.remove("show");
                     }
                   }
-                };
-              </script>
-            </div>
+                }
+              };
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right_info">
+      <div class="color_picker">
+        <label class="color_title" for="backgroundColorPicker">알약 색상:</label>
+        <input type="color" id="backgroundColorPicker" />
+        <div id="content" class="color_div"></div>
+      </div>
+      <br />
+
+      <div class="pill_text">
+        <div class="pill_text_title">식별 문자:</div>
+        <div class="input_AT">
+          <input type="text" name="pill_text" id="pill_text" placeholder="식별문자를 입력하세요." />
+        </div>
+      </div>
+
+      <br />
+
+      <div class="pill_sort">
+        <div class="pill_text_title">알약 제형:</div>
+
+        <div class="input_frame">
+          <div class="pill_sorting">
+            <img src="img/경질캡슐.jpg" id="gsorting" width="70px" height="70px" style="margin-right: 10px"
+              onclick="gsorting_box()" />
+            <div class="pill_sorting_text">경질캡슐&nbsp;</div>
+          </div>
+          <div class="pill_sorting">
+            <img src="img/연질캡슐.jpg" id="ysorting" width="70px" height="70px" style="margin-right: 10px"
+              onclick="ysorting_box()" />
+            <div class="pill_sorting_text">연질캡슐&nbsp;&nbsp;</div>
+          </div>
+          <div class="pill_sorting">
+            <img src="img/정제.jpg" id="jsorting" width="70px" height="70px" style="margin-right: 10px"
+              onclick="jsorting_box()" />
+            <div class="pill_sorting_text">정제 &nbsp;</div>
+          </div>
+          <div class="pill_sorting">
+            <img src="img/장용제(필름코팅).jpg" id="zsorting" width="70px" height="70px" style="margin-right: 10px"
+              onclick="zsorting_box()" />
+            <div class="pill_sorting_text">장용제<br />(필름코팅)</div>
           </div>
         </div>
       </div>
 
-      <div class="right_info">
-        <div class="color_picker">
-          <label class="color_title" for="backgroundColorPicker"
-            >알약 색상:</label
-          >
-          <input type="color" id="backgroundColorPicker" />
-          <div id="content" class="color_div"></div>
-        </div>
-        <br />
+      <br /><br /><br /><br />
 
-        <div class="pill_text">
-          <div class="pill_text_title">식별 문자:</div>
-          <div class="input_AT">
-            <input
-              type="text"
-              name="pill_text"
-              id="pill_text"
-              placeholder="식별문자를 입력하세요."
-            />
+      <div class="pill_sort">
+        <div class="pill_text_title">분할 모양:</div>
+        <div class="input_frame">
+          <div class="pill_sorting">
+            <img src="img/-.png" id="minus" width="110px" height="70px" style="margin-right: 10px"
+              onclick="minus_box()" />
+            <div class="pill_sorting_text">&nbsp;&nbsp;&nbsp;-</div>
           </div>
-        </div>
-
-        <br />
-
-        <div class="pill_sort">
-          <div class="pill_text_title">알약 제형:</div>
-
-          <div class="input_frame">
-            <div class="pill_sorting">
-              <img
-                src="img/경질캡슐.jpg"
-                id="gsorting"
-                width="70px"
-                height="70px"
-                style="margin-right: 10px"
-                onclick="gsorting_box()"
-              />
-              <div class="pill_sorting_text">경질캡슐&nbsp;</div>
-            </div>
-            <div class="pill_sorting">
-              <img
-                src="img/연질캡슐.jpg"
-                id="ysorting"
-                width="70px"
-                height="70px"
-                style="margin-right: 10px"
-                onclick="ysorting_box()"
-              />
-              <div class="pill_sorting_text">연질캡슐&nbsp;&nbsp;</div>
-            </div>
-            <div class="pill_sorting">
-              <img
-                src="img/정제.jpg"
-                id="jsorting"
-                width="70px"
-                height="70px"
-                style="margin-right: 10px"
-                onclick="jsorting_box()"
-              />
-              <div class="pill_sorting_text">정제 &nbsp;</div>
-            </div>
-            <div class="pill_sorting">
-              <img
-                src="img/장용제(필름코팅).jpg"
-                id="zsorting"
-                width="70px"
-                height="70px"
-                style="margin-right: 10px"
-                onclick="zsorting_box()"
-              />
-              <div class="pill_sorting_text">장용제<br />(필름코팅)</div>
-            </div>
+          <div class="pill_sorting">
+            <img src="img/+.png" id="plus" width="110px" height="70px" style="margin-right: 10px"
+              onclick="plus_box()" />
+            <div class="pill_sorting_text">&nbsp;&nbsp;&nbsp;+</div>
           </div>
-        </div>
-
-        <br /><br /><br /><br />
-
-        <div class="pill_sort">
-          <div class="pill_text_title">분할 모양:</div>
-          <div class="input_frame">
-            <div class="pill_sorting">
-              <img
-                src="img/-.png"
-                id="minus"
-                width="110px"
-                height="70px"
-                style="margin-right: 10px"
-                onclick="minus_box()"
-              />
-              <div class="pill_sorting_text">&nbsp;&nbsp;&nbsp;-</div>
-            </div>
-            <div class="pill_sorting">
-              <img
-                src="img/+.png"
-                id="plus"
-                width="110px"
-                height="70px"
-                style="margin-right: 10px"
-                onclick="plus_box()"
-              />
-              <div class="pill_sorting_text">&nbsp;&nbsp;&nbsp;+</div>
-            </div>
-            <div class="pill_sorting">
-              <img
-                src="img/none.png"
-                id="none"
-                width="110px"
-                height="70px"
-                style="margin-right: 10px"
-                onclick="none_box()"
-              />
-              <div class="pill_sorting_text">&nbsp;&nbsp;없음</div>
-            </div>
-            <div class="pill_sorting">
-              <img
-                src="img/guitar.png"
-                id="guitar"
-                width="65px"
-                height="65px"
-                style="margin-right: 10px"
-                onclick="guitar_box()"
-              />
-              <div class="pill_sorting_text" style="margin-top: 5px">
-                기타&nbsp;
-              </div>
+          <div class="pill_sorting">
+            <img src="img/none.png" id="none" width="110px" height="70px" style="margin-right: 10px"
+              onclick="none_box()" />
+            <div class="pill_sorting_text">&nbsp;&nbsp;없음</div>
+          </div>
+          <div class="pill_sorting">
+            <img src="img/guitar.png" id="guitar" width="65px" height="65px" style="margin-right: 10px"
+              onclick="guitar_box()" />
+            <div class="pill_sorting_text" style="margin-top: 5px">
+              기타&nbsp;
             </div>
           </div>
         </div>
       </div>
     </div>
-    <button
-      class="register_btn"
-      onclick="location.href='#'"
-      style="cursor: url(img/click.cur), auto"
-    >
-      등록
-    </button>
-  </body>
+  </div>
+  <button class="register_btn" onclick="location.href='#'" style="cursor: url(img/click.cur), auto">
+    등록
+  </button>
+</body>
+
 </html>
