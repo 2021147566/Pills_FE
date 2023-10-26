@@ -21,23 +21,38 @@ async function request() {
     }
   );
   const data = await response.json();
-  console.log("dd");
+  console.log(data);
+  console.log("profile_img" + data.profile_img)
+  $('#my_email').append(data.email)
+  $('#username').append(data.username)
+
+  $('#nickname').append(data.nickname)
+  let rows = data.durgslist
+  console.log(rows)
+  $('#druglist').empty()
+  rows.forEach((a) => {
+    let temp_html = ``
+    temp_html = `<li>${a}</li>`
+    $('#druglist').append(temp_html)
+  })
+
+
+
 
   document.getElementById(
     "my_profile_img"
-  ).src = `http://127.0.0.1:8000${data.profile_img}/`;
+  ).src = 'http://127.0.0.1:8000' + data.profile_img;
   // payload_parse.profile_img 로 하면, 로그인 당시의 이미지로 되고 중간에 수정된 이미지가 반영이 안 됨.
+
   document.getElementById(
     "nav_profile_img"
-  ).src = `http://127.0.0.1:8000${data.profile_img}/`;
+  ).src = 'http://127.0.0.1:8000' + data.profile_img;
 
-  document.getElementById("my_email").innerText = data.email;
-  document.getElementById("username").innerText = data.username;
+
   document.getElementById("update_username").value = data.username;
-  document.getElementById("nickname").innerText = data.nickname;
+
   document.getElementById("update_nickname").value = data.nickname;
-  document.getElementById("drug").innerText = data.durgslist;
-  console.log(drug_name);
+
 }
 function OpenModal() {
   document.getElementById("myModal").style.display = "block";
@@ -57,7 +72,7 @@ async function handleUpdatePassword() {
   const request_user_id = payload_parse.user_id;
 
   const response = await fetch(
-    `http://127.0.0.1:8000/accounts/profile/${request_user_id}/`,
+    `http://127.0.0.1:5500/accounts/profile/${request_user_id}/`,
     {
       method: "PUT",
       headers: {
