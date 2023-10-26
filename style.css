@@ -256,7 +256,7 @@ a {
 }
 #update_username{
   margin-left: 20px;
-  width:30%;
+  width:40%;
   font-size: 20px;
   font-weight: bold;
   display: flex;
@@ -267,7 +267,7 @@ a {
 }
 #update_nickname{
   margin-left: 40px;
-  width: 30%;
+  width: 40%;
   font-size: 20px;
   font-weight: bold;
   
