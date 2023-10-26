@@ -139,4 +139,5 @@ var loadFile = function (event) {
   output.onload = function () {
     URL.revokeObjectURL(output.src);
   };
+
 };
