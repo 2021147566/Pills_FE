@@ -142,3 +142,16 @@ function handleProfilePreview(input) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+async function DrugView() {
+  const response = await fetch(
+    `http://127.0.0.1:8000/accounts/${request_user_id}/`,
+    {
+      method: "PUT",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access"),
+      },
+      body: formData,
+    }
+  );
+}
