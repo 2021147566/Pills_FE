@@ -4,7 +4,9 @@ window.onload = () => {
 };
 
 async function request() {
+  console.log("hhh");
   const payload = localStorage.getItem("payload");
+  console.log(payload);
   const payload_parse = JSON.parse(payload);
   console.log(payload_parse.profile_img);
   const request_user_id = payload_parse.user_id;
@@ -19,7 +21,7 @@ async function request() {
     }
   );
   const data = await response.json();
-  console.log(data);
+  console.log("dd");
 
   document.getElementById(
     "my_profile_img"
@@ -30,25 +32,21 @@ async function request() {
   ).src = `http://127.0.0.1:8000${data.profile_img}/`;
 
   document.getElementById("my_email").innerText = data.email;
+  document.getElementById("username").innerText = data.username;
   document.getElementById("update_username").value = data.username;
-  document.getElementById("update_birthday").value = data.birthday;
+  document.getElementById("nickname").innerText = data.nickname;
+  document.getElementById("update_nickname").value = data.nickname;
 }
-
-async function OpenModal() {
-  const modalCloseButton = document.getElementById("modalCloseButton");
-  const modal = document.getElementById("modalContainer");
-
-  modal.classList.remove("hidden");
-
-  modalCloseButton.addEventListener("click", () => {
-    modal.classList.add("hidden");
-
-    // 닫기 누르면 모달 창 초기화
-    document.getElementById("update_present_pw").value = "";
-    document.getElementById("update_password_").value = "";
-    document.getElementById("update_password_check").value = "";
-    document.getElementById("pw_update_errors").innerText = "";
-  });
+function OpenModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+function CloseModal() {
+  document.getElementById("myModal").style.display = "none";
+  document.getElementById("update_present_pw").value = "";
+  document.getElementById("update_password_").value = "";
+  document.getElementById("update_password_check").value = "";
+  document.getElementById("pw_update_errors").innerText = "";
+  console.log("CloseModal");
 }
 
 async function handleUpdatePassword() {
@@ -97,7 +95,8 @@ async function handleUpdateProfile() {
   const formData = new FormData();
 
   formData.append("username", document.getElementById("update_username").value);
-  formData.append("birthday", document.getElementById("update_birthday").value);
+  formData.append("nickname", document.getElementById("update_nickname").value);
+
   if (document.getElementById("update_profile_img").files[0]) {
     formData.append(
       "profile_img",
@@ -129,29 +128,15 @@ async function handleUpdateProfile() {
   }
 }
 
-function handleProfilePreview(input) {
-  console.log(input.files);
-  if (input.files && input.files.length > 0) {
-    var previewContainer = document.getElementById("update_profile_img");
-
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      document.getElementById("my_profile_img").src = e.target.result;
-      // console.log(e.target.result)
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
+function onClickUpload() {
+  let myInput = document.getElementById("update_profile_img");
+  myInput.click();
 }
-
-async function DrugView() {
-  const response = await fetch(
-    `http://127.0.0.1:8000/accounts/${request_user_id}/`,
-    {
-      method: "PUT",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("access"),
-      },
-      body: formData,
-    }
-  );
-}
+var loadFile = function (event) {
+  var output = document.getElementById("my_profile_img");
+  output.style.display = "";
+  output.src = URL.createObjectURL(event.target.files[0]);
+  output.onload = function () {
+    URL.revokeObjectURL(output.src);
+  };
+};
