@@ -20,7 +20,7 @@
                 temp_html1 = `
       <a class="logout" onclick="handleLogout()">로그아웃</a>
       <a class="profile" href="mypage.html">
-        <img class="bar_profile" src="img/profile.jpg" id="my_profile_img" alt="profile" />
+        <img class="bar_profile" src="img/profile.jpg" id="nav_profile_img" alt="profile" />
       </a>
       `
             } else {
@@ -28,12 +28,12 @@
               >
               <a class="signup" href="signup.html">회원가입</a>
               <a class="profile" href="mypage.html">
-              <img class="bar_profile" src="img/profile.jpg" id="my_profile_img"
+              <img class="bar_profile" src="img/profile.jpg" id="nav_profile_img"
                 alt="profile" />
             </a>`
             }
             //console.log(temp_html1)
-            $('#nav_bar').append(temp_html1);
+            $('#nav_bar_custom').append(temp_html1);
             console.log("append")
         });
     </script>
@@ -75,7 +75,7 @@
                 <h1>AL-I</h1>
             </div>
         </a>
-        <div class="bar_right" id="nav_bar">
+        <div class="bar_right" id="nav_bar_custom">
 
         </div>
     </div>
@@ -83,12 +83,21 @@
     <div class="profile_box">
         <div class="profile_img">
             <img src="img/profile.jpg" id="my_profile_img" alt="profile" width="200px" height="200px" />
-            <button type="button" class="upload_btn_mypage_" onclick="onClickUpload()" style="margin-top: 20px">
+            <button type="button" enctype="multipart/form-dataz" class="upload_btn_mypage_" onclick="onClickUpload()"
+                style="margin-top: 20px">
                 파일 업로드
             </button>
             <input id="update_profile_img" type="file" accept="image/*" onchange="loadFile(event)"
                 style="visibility: hidden" />
+            <div class="profile_info_text">
+                <div id="druglist">
+
+                </div>
+
+            </div>
         </div>
+        <!-- <div id="druglist">
+        </div> -->
 
         <div class="profile_info">
             <br><br>
@@ -151,6 +160,8 @@
                                 변경
                     </div>
                 </div>
+                <!-- <div id="druglist">
+                </div> -->
             </div>
 
 

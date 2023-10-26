@@ -10,9 +10,10 @@ async function DrugCreate() {
 
     if (input) {
         img = input.files[0];
-        console.log(img.name);
+        console.log(img);
         const formData = new FormData();
         formData.append('img', img);
+        console.log(formData)
 
         loadingElement.style.display = 'block';
 
