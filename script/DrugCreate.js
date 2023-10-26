@@ -1,14 +1,12 @@
-// const loadingElement = document.getElementById("load");
-
-// window.onload = function () {
-
-//     loadingElement.style.display = 'none';
-// }
-
 
 async function DrugCreate() {
     const input = document.getElementById("upload_file");
     const loadingElement = document.getElementById("load");
+    const accessToken = localStorage.getItem("access");
+    const storage = JSON.parse(localStorage.getItem("payload"))
+    const user_id = storage['user_id']
+    console.log(user_id)
+    console.log(accessToken)
 
     if (input) {
         img = input.files[0];
@@ -18,10 +16,10 @@ async function DrugCreate() {
 
         loadingElement.style.display = 'block';
 
-        const response = await fetch('http://127.0.0.1:8000/drugs/create/', {
-            // headers: {
-            //     'content-type': 'application/json',
-            // },
+        const response = await fetch(`http://127.0.0.1:8000/drugs/create/${user_id}`, {
+            headers: {
+                "Authorization": "Bearer " + accessToken,
+            },
             method: 'POST',
             body: formData
         }).then((res) => {
