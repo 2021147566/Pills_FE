@@ -1,3 +1,5 @@
+// const res = require("express/lib/response")
+
 const frontend_base_url = "http://127.0.0.1:5500"
 const backend_base_url = "http://127.0.0.1:8000"
 
@@ -7,7 +9,7 @@ async function handleSignup() {
     const username = document.getElementById("username").value
     const password1 = document.getElementById("password").value
     const password2 = document.getElementById("passwordcheck").value
-
+    console.log("회원가입 체크")
     // 체크
     if (password1 === password2) {
         const response = await fetch(`${backend_base_url}/accounts/register/`, {
@@ -23,12 +25,25 @@ async function handleSignup() {
                 "password2": password2
             })
         }).then((res) => {
-            return res.json(); //Promise 반환
+            if (res.status === 400) {
+                alert("동일한 유저네임이나 이메일이 존재합니다.");
+                window.location.reload();
+                return;
+            }
+            else {
+                return res.json(); //Promise 반환
+            }
+            // return res.json(); //Promise 반환
         })
             .then((json) => {
-                window.location.href = "/email_await.html"
+                console.log(json)
+                if (json['detail'] === "확인 이메일을 발송했습니다.") {
 
+                    window.location.href = "/email_await.html"
+                }
+                //window.location.href = "/email_await.html"
             });
+
         if (response.status === 200) {
             // 회원가입 성공
             alert("회원가입이 성공적으로 완료되었습니다.");
