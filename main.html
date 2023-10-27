@@ -1,95 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Main | AL-I</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/script/login.js"></script>
+    <script src="script/youtube.js"></script>
+    <script src="script/article.js"></script>
+    <script src="/script/signup.js"></script>
+    <script src="script/mypage.js"></script>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Main | AL-I</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="./script/login.js"></script>
-  <script src="script/youtube.js"></script>
-  <script src="script/article.js"></script>
-  <script src="./script/signup.js"></script>
+    <script>
+      function handleLogout() {
+        localStorage.removeItem("access");
+        localStorage.removeItem("refresh");
+        localStorage.removeItem("payload");
+        window.location.replace(`${frontend_base_url}/main.html`);
+      }
+      $(document).ready(function () {
+        try {
+          const accessToken = localStorage.getItem("access");
+          const storage = JSON.parse(localStorage.getItem("payload"));
+          const user_id = storage["user_id"];
+          let temp_html1 = ``;
+          console.log("accessToken" + accessToken);
 
-
-  <script>
-    function handleLogout() {
-      localStorage.removeItem("access")
-      localStorage.removeItem("refresh")
-      localStorage.removeItem("payload")
-      window.location.replace(`${frontend_base_url}/main.html`)
-    }
-    $(document).ready(function () {
-
-      try {
-        const accessToken = localStorage.getItem("access");
-        const storage = JSON.parse(localStorage.getItem("payload"))
-        const user_id = storage['user_id']
-        let temp_html1 = ``
-        console.log("accessToken" + accessToken)
-
-        if (accessToken) {
-          temp_html1 = `
+          if (accessToken) {
+            temp_html1 = `
       <a class="logout" href="javascript:handleLogout()">로그아웃</a>
       <a class="profile" href="mypage.html">
         <img class="bar_profile" src="img/profile.jpg" id="my_profile_img" alt="profile" />
       </a>
-      `
-        }
-        $('#nav_bar').append(temp_html1);
-        console.log("append")
-      } catch (e) {
-
-        console.log("no account")
-        temp_html1 = `<a class="login" href="login.html">로그인</a
+      `;
+          }
+          $("#nav_bar").append(temp_html1);
+          console.log("append");
+        } catch (e) {
+          console.log("no account");
+          temp_html1 = `<a class="login" href="login.html">로그인</a
               >
               <a class="signup" href="signup.html">회원가입</a>
               <a class="profile" href="mypage.html">
               <img class="bar_profile" src="img/profile.jpg" id="my_profile_img"
                 alt="profile" />
-            </a>`
+            </a>`;
+        }
 
-      }
+        $("#nav_bar").append(temp_html1);
+        console.log("append");
+      });
+    </script>
+  </head>
 
+  <body>
+    <div class="bar">
+      <a class="bar_left" href="main.html">
+        <div class="logo">
+          <img src="img/pill.png" alt="logo" width="80px" height="80px" />
+        </div>
+        <div class="title">
+          <h1>AL-I</h1>
+        </div>
+      </a>
+      <div id="nav_bar" class="bar_right"></div>
+    </div>
 
-      $('#nav_bar').append(temp_html1);
-      console.log("append")
-    });
-
-  </script>
-</head>
-
-<body>
-  <div class="bar">
-    <a class="bar_left" href="main.html">
-      <div class="logo">
-        <img src="img/pill.png" alt="logo" width="80px" height="80px" />
+    <div class="content_box">
+      <div class="youtube_box">
+        <div class="player"></div>
       </div>
-      <div class="title">
-        <h1>AL-I</h1>
+      <div class="articles_box">
+        <div class="article_box" id="article_box">
+          <h4>최신 약학 뉴스 📰</h4>
+        </div>
       </div>
+    </div>
+    <a class="pic" href="create.html">
+      <img src="img/camera.png" alt="camera" width="80px" height="80px" />
     </a>
-    <div id="nav_bar" class="bar_right">
-
-    </div>
-  </div>
-
-  <div class="content_box">
-    <div class="youtube_box">
-      <div class="player">
-
-      </div>
-    </div>
-    <div class="articles_box">
-      <div class="article_box" id="article_box">
-        <h4>최신 약학 뉴스 📰</h4>
-      </div>
-    </div>
-  </div>
-  <a class="pic" href="create.html">
-    <img src="img/camera.png" alt="camera" width="80px" height="80px" />
-  </a>
-</body>
-
+  </body>
 </html>
