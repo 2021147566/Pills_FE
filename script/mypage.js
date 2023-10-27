@@ -158,5 +158,5 @@ var loadFile = function (event) {
   output.onload = function () {
     URL.revokeObjectURL(output.src);
   };
-  //console.log(document.getElementById('update_profile_img').file[0])
+
 };
