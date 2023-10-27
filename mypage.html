@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>My Page | AL-I</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,32 +10,49 @@
     <script src="script/mypage.js"></script>
 
     <script>
+        function handleLogout() {
+            localStorage.removeItem("access")
+            localStorage.removeItem("refresh")
+            localStorage.removeItem("payload")
+            window.location.replace(`${frontend_base_url}/main.html`)
+        }
         $(document).ready(function () {
-            const accessToken = localStorage.getItem("access");
-            const storage = JSON.parse(localStorage.getItem("payload"))
-            const user_id = storage['user_id']
-            let temp_html1 = ``
 
-            if (user_id) {
-                temp_html1 = `
-      <a class="logout" onclick="handleLogout()">로그아웃</a>
-      <a class="profile" href="mypage.html">
-        <img class="bar_profile" src="img/profile.jpg" id="nav_profile_img" alt="profile" />
-      </a>
-      `
-            } else {
+            try {
+                const accessToken = localStorage.getItem("access");
+                const storage = JSON.parse(localStorage.getItem("payload"))
+                const user_id = storage['user_id']
+                let temp_html1 = ``
+                console.log("accessToken" + accessToken)
+
+                if (accessToken) {
+                    temp_html1 = `
+          <a class="logout" href="javascript:handleLogout()">로그아웃</a>
+          <a class="profile" href="mypage.html">
+            <img class="bar_profile" src="img/profile.jpg" id="my_profile_img" alt="profile" />
+          </a>
+          `
+                }
+                $('#nav_bar').append(temp_html1);
+                console.log("append")
+            } catch (e) {
+
+                console.log("no account")
                 temp_html1 = `<a class="login" href="login.html">로그인</a
-              >
-              <a class="signup" href="signup.html">회원가입</a>
-              <a class="profile" href="mypage.html">
-              <img class="bar_profile" src="img/profile.jpg" id="nav_profile_img"
-                alt="profile" />
-            </a>`
+                  >
+                  <a class="signup" href="signup.html">회원가입</a>
+                  <a class="profile" href="mypage.html">
+                  <img class="bar_profile" src="img/profile.jpg" id="my_profile_img"
+                    alt="profile" />
+                </a>`
+
             }
-            //console.log(temp_html1)
-            $('#nav_bar_custom').append(temp_html1);
+
+
+            $('#nav_bar').append(temp_html1);
             console.log("append")
         });
+
     </script>
 
 </head>
@@ -42,25 +60,28 @@
 
 
 <head>
-  <meta charset="UTF-8" />
-  <title>My Page | AL-I</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="script/mypage.js"></script>
-  <style>
-    .profile_info li {
-      list-style-type: none;
-    }
-    .profile_info h3 {
-      display: flex;
-    }
-    .password_edit {
-      width: 100%;
-      display: flex;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <title>My Page | AL-I</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script/mypage.js"></script>
+    <style>
+        .profile_info li {
+            list-style-type: none;
+        }
+
+        .profile_info h3 {
+            display: flex;
+        }
+
+        .password_edit {
+            width: 100%;
+            display: flex;
+        }
+    </style>
 </head>
+
 <body>
 
     <div class="bar">
