@@ -22,7 +22,7 @@ async function request() {
   );
   const data = await response.json();
   console.log(data);
-  console.log("profile_img" + data.profile_img)
+  console.log(data.profile_img)
   $('#my_email').append(data.email)
   $('#username').append(data.username)
 
@@ -42,7 +42,7 @@ async function request() {
   document.getElementById(
     "my_profile_img"
   ).src = 'http://127.0.0.1:8000' + data.profile_img;
-  // payload_parse.profile_img 로 하면, 로그인 당시의 이미지로 되고 중간에 수정된 이미지가 반영이 안 됨.
+
 
   document.getElementById(
     "nav_profile_img"
@@ -104,7 +104,7 @@ async function handleUpdatePassword() {
 }
 
 async function handleUpdateProfile() {
-  console.log("sss");
+  console.log("update")
   const payload = localStorage.getItem("payload");
   const payload_parse = JSON.parse(payload);
   const request_user_id = payload_parse.user_id;
@@ -113,6 +113,8 @@ async function handleUpdateProfile() {
 
   formData.append("username", document.getElementById("update_username").value);
   formData.append("nickname", document.getElementById("update_nickname").value);
+
+  console.log(document.getElementById("update_profile_img").files[0])
 
   if (document.getElementById("update_profile_img").files[0]) {
     formData.append(
@@ -156,5 +158,5 @@ var loadFile = function (event) {
   output.onload = function () {
     URL.revokeObjectURL(output.src);
   };
-
+  //console.log(document.getElementById('update_profile_img').file[0])
 };
