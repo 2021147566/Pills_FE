@@ -29,8 +29,8 @@ async function DrugCreate() {
             .then((json) => {
                 console.log(json); // 서버에서 주는 json데이터가 출력 됨
                 loadingElement.style.display = 'none';
-                if (json['message'] == "인식할 수 없습니다. 정보를 직접 입력해주세요") {
-
+                if (json['message'] == "인식할 수 없습니다. 정보를 직접 입력해주세요" || json['message'] == '등록되어 있지 않은 알약입니다. 정보를 직접 입력해주세요') {
+                    console.log(json['message'])
                     alert(json['message']);
                     location.href = 'manual.html';
                 }
