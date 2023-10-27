@@ -4,7 +4,7 @@ $(document).ready(function () {
   $.ajax({
     type: "GET",
     dataType: "json",
-    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&chart = mostPopular&maxResults=30&q=%EC%95%BD%EC%82%AC%EA%B0%80%20%EB%93%A4%EB%A0%A4%EC%A3%BC%EB%8A%94%20%EC%95%BD%20%EC%9D%B4%EC%95%BC%EA%B8%B0&type=video&key=AIzaSyDUA5p6nQCAaXFWIZFmmkMl5tbV3JnbNJE",
+    url: "https://www.googleapis.com/youtube/v3/search?part=snippet&chart = mostPopular&maxResults=30&q=%EC%95%BD%EC%82%AC%EA%B0%80%20%EB%93%A4%EB%A0%A4%EC%A3%BC%EB%8A%94%20%EC%95%BD%20%EC%9D%B4%EC%95%BC%EA%B8%B0&type=video&key=AIzaSyCc07mgT15uAIzaizLoF3cWcMGn83Lx2uw",
     // spare key: AIzaSyCc07mgT15uAIzaizLoF3cWcMGn83Lx2uw
     contentType: "application/json",
 
